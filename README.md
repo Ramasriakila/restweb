@@ -1,5 +1,5 @@
 # Ex.07 Restaurant Website
-## Date:30.4.25
+## Date: 12.05.2025
 
 ## AIM:
 To develop a static Restaurant website to display the food items and services provided by them.
@@ -28,516 +28,380 @@ Validate the HTML code.
 Publish the website in the given URL.
 
 ## PROGRAM:
+#### home.html
 ```
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourmet Haven | Fine Dining Experience</title>
+    <title>McDonald's</title>
     <style>
-        /* Global Styles */
-        :root {
-            --primary: #e63946;
-            --secondary: #f1faee;
-            --dark: #1d3557;
-            --light: #a8dadc;
-            --accent: #457b9d;
-        }
-        
+        /* Reset and full height layout */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Playfair Display', serif;
         }
-        
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+
+        html, body {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('bg.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            height: 100vh;
-            color: white;
             display: flex;
             flex-direction: column;
+        }
+
+        /* Center container */
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
             text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(255, 255, 255, 0.92); /* semi-transparent background */
         }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            position: absolute;
-            top: 0;
-            width: 90%;
-            max-width: 1200px;
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .hero-content {
-            margin-top: 60px;
-        }
-        
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            animation: fadeIn 2s ease;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: fadeIn 2.5s ease;
-        }
-        
-        .btn:hover {
-            background: #c1121f;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Menu Section */
-        .menu-section {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: 0;
-            left: 25%;
-        }
-        
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .menu-item {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .menu-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .menu-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .menu-item-content {
-            padding: 20px;
-        }
-        
-        .menu-item-content h3 {
-            font-size: 1.5rem;
+
+        .container h1 {
+            font-size: 2.8rem;
             margin-bottom: 10px;
-            color: var(--dark);
+            color: #da291c; /* McDonald's red */
         }
-        
-        .menu-item-content p {
-            color: #666;
-            margin-bottom: 15px;
+
+        .container p {
+            font-size: 1.3rem;
+            color: #333;
         }
-        
-        .price {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-        
-        /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background-color: var(--secondary);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-        
-        .contact-info p {
-            margin-bottom: 15px;
+
+        .button-group {
             display: flex;
-            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
         }
-        
-        .contact-info i {
-            margin-right: 10px;
-            color: var(--primary);
+
+        .btn {
+            background-color: #ffbc0d; /* McDonald's yellow */
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
-        
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
+
+        .btn:hover {
+            background-color: #f5a700;
         }
-        
-        .contact-form textarea {
-            height: 150px;
-        }
-        
-        /* Footer */
+
         footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
             text-align: center;
+            padding: 15px;
+            background-color: #f1f1f1;
+            font-size: 0.9rem;
+            color: #555;
         }
-        
-        .social-links {
-            margin-bottom: 30px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        .copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-            
-            nav {
-                flex-direction: column;
-            }
-            
-            .nav-links {
-                margin-top: 20px;
-            }
-            
-            .nav-links li {
-                margin: 0 10px;
-            }
-        }
+       
+
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <!-- Header/Hero Section -->
-    <header>
-        <nav class="container">
-            <div class="logo">Gourmet Haven</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        
-        <div class="hero-content container">
-            <h1>Exquisite Dining Experience</h1>
-            <p>Discover culinary perfection with our chef's seasonal creations, crafted from the finest locally-sourced ingredients</p>
-            <a href="#menu" class="btn">View Our Menu</a>
-        </div>
-    </header>
     
-    <!-- Menu Section -->
-    <section id="menu" class="menu-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Signature Dishes</h2>
-            </div>
-            
-            <div class="menu-grid">
-                <!-- Menu Item 1 -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salmon Dish">
-                    <div class="menu-item-content">
-                        <h3>Pan-Seared Salmon</h3>
-                        <p>Fresh Atlantic salmon with lemon butter sauce, seasonal vegetables, and herb-infused rice</p>
-                        <span class="price">$28.50</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 2 -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salad Dish">
-                    <div class="menu-item-content">
-                        <h3>Mediterranean Salad</h3>
-                        <p>Fresh greens with cherry tomatoes, cucumber, olives, feta cheese, and balsamic dressing</p>
-                        <span class="price">$18.00</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 3 -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pasta Dish">
-                    <div class="menu-item-content">
-                        <h3>Truffle Pasta</h3>
-                        <p>Handmade pasta with wild mushrooms, truffle oil, parmesan, and fresh herbs</p>
-                        <span class="price">$24.75</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 4 -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Steak Dish">
-                    <div class="menu-item-content">
-                        <h3>Filet Mignon</h3>
-                        <p>8oz premium cut with red wine reduction, garlic mashed potatoes, and grilled asparagus</p>
-                        <span class="price">$36.00</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 5 -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dessert Dish">
-                    <div class="menu-item-content">
-                        <h3>Chocolate Soufflé</h3>
-                        <p>Warm chocolate soufflé with vanilla bean ice cream and raspberry coulis</p>
-                        <span class="price">$12.50</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 6 -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1560717843-60cb77e8d2e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Wine Selection">
-                    <div class="menu-item-content">
-                        <h3>Wine Pairing</h3>
-                        <p>Sommelier-selected wine pairing for each course (3 glasses)</p>
-                        <span class="price">$25.00</span>
-                    </div>
-                </div>
-            </div>
+
+    <div class="container">
+        <h1>Welcome to McDonald's</h1>
+        <p>i'm lovin' it</p>
+        <div class="button-group">
+            <a href="about.html" class="btn">About</a>
+            <a href="menu.html" class="btn">Menu</a>
+            <a href="contact.html" class="btn">Contact Us</a>
         </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Culinary Story</h2>
-                    <p>Founded in 2010, Gourmet Haven has been serving exceptional cuisine in a warm, inviting atmosphere. Our executive chef, with over 20 years of international experience, creates dishes that blend traditional techniques with innovative flavors.</p>
-                    <p>We pride ourselves on sourcing ingredients from local farmers and producers, ensuring the freshest seasonal offerings while supporting our community.</p>
-                    <p>Our restaurant has been awarded the "Best Fine Dining Experience" by City Magazine for three consecutive years.</p>
-                    <a href="#contact" class="btn">Reserve a Table</a>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581349485608-9469926a8e5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Make a Reservation</h2>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Culinary Street, Foodie City, FC 12345</p>
-                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@gourmethaven.com</p>
-                    <p><i class="fas fa-clock"></i> Open Tuesday-Sunday: 5:00 PM - 11:00 PM</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="tel" placeholder="Phone Number">
-                        <input type="date" placeholder="Date">
-                        <input type="time" placeholder="Time">
-                        <input type="number" placeholder="Number of Guests" min="1">
-                        <textarea placeholder="Special Requests"></textarea>
-                        <button type="submit" class="btn">Book Now</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
+    </div>
+
     <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-yelp"></i></a>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Gourmet Haven. All Rights Reserved.</p>
-            </div>
-        </div>
+        Designed and Developed by SHRIRAM VR
     </footer>
+
 </body>
 </html>
+```
+#### ABBOUT.HTML
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - McDonald's</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #fffbe6;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #d70000;
+      color: white;
+      text-align: center;
+      padding: 50px 20px 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #d70000;
+    }
+
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-text {
+      text-align: justify;
+      font-size: 1rem;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .about-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #f8f9fa;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (min-width: 768px) {
+      .about-container {
+        flex-direction: row;
+        gap: 40px;
+        justify-content: space-between;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-image {
+        flex: 1;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to McDonald’s</h1>
+    <p>Serving smiles and iconic flavors since 1940.</p>
+  </header>
+
+  <div class="content">
+    <h2>About Us</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          The story of McDonald's began in 1940 when Richard and Maurice McDonald opened the first McDonald's restaurant in San Bernardino, California. Their innovative approach to fast food service laid the foundation for what would become the world’s largest restaurant chain.
+        </p>
+        <p>
+          In 1955, Ray Kroc joined the company and transformed McDonald's into a global franchise, emphasizing consistency, quality, and speed. From the classic Big Mac to crispy fries, McDonald’s has become synonymous with delicious, reliable meals across cultures.
+        </p>
+        <p>
+          Today, McDonald’s operates in over 100 countries, offering a blend of international and local flavors, all while maintaining a commitment to quality, sustainability, and community impact. Whether you're grabbing a quick meal or enjoying time with family, McDonald’s remains a place where great food meets great memories.
+        </p>
+      </div>
+      <img src="founder.jpg" alt="McDonald's Founders" class="about-image" />
+    </div>
+  </div>
+
+  <footer>
+    Designed and Developed by SHRIRAM VR
+  </footer>
+
+</body>
+</html>
 ```
 
+#### CONTACT.HTML
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - McDonald's</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fffdf3;
+      color: #333;
+    }
 
+    header {
+      background-color: #d70000;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #d70000;
+    }
+
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    input, textarea {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 1rem;
+      background-color: #ffc72c;
+      color: #000;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #ffb300;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      background-color: #f1f1f1;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact McDonald's</h1>
+  </header>
+
+  <div class="container">
+    <section class="contact-info">
+      <h2>Get in Touch</h2>
+      <p><strong>Address:</strong> McDonald’s India HQ, West Avenue, Mumbai, Maharashtra - 400001</p>
+      <p><strong>Phone:</strong> 1800-123-4567</p>
+      <p><strong>Email:</strong> support@mcdonaldsindia.com</p>
+      <p><strong>Hours:</strong> 10:00 AM - 10:00 PM, All Days</p>
+    </section>
+
+    <section class="feedback-form">
+      <h2>We Value Your Feedback</h2>
+      <form action="#" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Your Feedback</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 McDonald's. All rights reserved.<br>
+    Designed and Developed by SHRIRAM VR
+  </footer>
+</body>
+</html>
+```
 ## OUTPUT:
-![alt text](<Screenshot 2025-04-30 114319.png>)
-![alt text](<Screenshot 2025-04-30 114341-1.png>)
+#### HOME.HTML
+![alt text](<Screenshot 2025-05-03 093600.png>)
+
+#### MENU.HTML
+![alt text](<Screenshot 2025-05-03 093615.png>)
+
+#### MENU.HTML
+![alt text](<Screenshot 2025-05-03 093629.png>)
+![alt text](<Screenshot 2025-05-03 093641.png>)
+
+#### CONTACT.HTML
+![alt text](<Screenshot 2025-05-03 093652.png>)
 
 ## RESULT:
 The program for designing software company website using HTML and CSS is completed successfully.
