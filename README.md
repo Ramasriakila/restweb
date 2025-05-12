@@ -617,24 +617,6 @@ Publish the website in the given URL.
 
 ```
 
-# OUTPUT:
-# Ex.07 Restaurant Website
-# Date:2/12/2024
-# AIM:
-To develop a static Restaurant website to display the food items and services provided by them.
-
-# DESIGN STEPS:
-## Step 1:
-Requirement collection.
-
-## Step 2:
-Creating the layout using HTML and CSS.
-
-## Step 3:
-Updating the sample content.
-
-## Step 4:
-Choose the appropriate style and color scheme.
 
 ## Step 5:
 Validate the layout in various browsers.
